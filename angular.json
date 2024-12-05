@@ -7,7 +7,8 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         }
       },
       "root": "",
@@ -20,15 +21,14 @@
             "outputPath": "dist/portfolio-espasandin-yatel",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [

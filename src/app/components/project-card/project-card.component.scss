@@ -1,0 +1,26 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 5rem 1.25rem;
+}
+
+h3{
+    margin: 0;
+}
+
+img{
+    transition: fill 0.4s ease-in-out, transform 0.3s ease-out;
+    border-radius: 15px;
+    max-width: 80%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    opacity: 0.8;
+}
+img:hover{
+    transition: fill 0.4s ease-in-out, transform 0.3s ease-out;
+    transform: scale(1.05);  
+    opacity: 1;
+}

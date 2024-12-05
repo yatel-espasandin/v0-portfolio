@@ -1,0 +1,8 @@
+<h2>Projects</h2>
+
+<div>
+    @for(project of projectArray; track project.id) {
+        <app-project-card [project]="project" />
+    }
+</div>
+
