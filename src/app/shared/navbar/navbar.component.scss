@@ -1,6 +1,10 @@
 nav {
     display: flex;
     justify-content: center;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    padding-top: 10px;
 }
 
 ul {
@@ -10,7 +14,13 @@ ul {
     margin: 0px;
     padding: 0px;
     gap: 1.2rem;
+    background-color: rgb(32, 32, 32);
+    border-radius: 15px;
+    box-shadow: 1px 1px 2px #b47dcd, /* Sombra principal */
+                1px 1px 4px #e878a2, /* Sombra secundaria */
+                1px 1px 6px #eb85ab;
 }
+
 
 li {
     padding: 1rem;
