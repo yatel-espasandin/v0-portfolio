@@ -1,0 +1,85 @@
+.formWrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.mWrapper{
+    display: flex;
+    justify-content: center;
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+fieldset {
+    border: 1px solid transparent;
+    border-radius: 15px;
+    padding: 35px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 1px 1px 2px #b47dcd, 
+                1px 1px 4px #e878a2, 
+                1px 1px 6px #eb85ab;
+}
+
+label {
+    display: block;
+    color: rgb(179, 179, 179);
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.fromEmail {
+    width: 95%;
+    padding: 0.5rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    color: black;
+    background-color: rgb(179, 179, 179);
+    font-size: 14px;
+}
+
+.message{
+    height: 100px;  
+    width: 95%;
+    padding: 0.5rem;
+    border: 1px solid #cccccc;  
+    border-radius: 4px;
+    color: black;
+    background-color: rgb(179, 179, 179);
+    font-size: 14px;
+    resize: none;
+}
+
+.fromEmail, .message{
+    margin-bottom: 1.5rem
+}
+
+small {
+    position: absolute;
+    display: block;
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: -1.2rem;
+}
+
+button{
+    transition: fill 0.4s ease-in-out, transform 0.3s ease-out;
+    padding: 0.3rem;
+    width: 100%;
+    margin-top: 1rem;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: rgb(32, 32, 32);
+    background-color: rgb(179, 179, 179);
+    cursor: pointer;
+}
+
+button:hover{
+    transition: fill 0.4s ease-in-out, transform 0.3s ease-out;
+    transform: scale(1.02);  
+    background: linear-gradient(to right, #b47dcd, #e878a2, #eb85ab);
+}

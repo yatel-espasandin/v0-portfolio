@@ -3,4 +3,5 @@ export interface Projects {
     img: string,
     title: string,
     description: string,    
+    codeLink?: string
 }

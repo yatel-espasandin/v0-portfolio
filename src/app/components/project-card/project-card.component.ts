@@ -5,7 +5,7 @@ import { Projects } from 'app/model/projects';
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: './project-card.component.html',
   styleUrl: './project-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

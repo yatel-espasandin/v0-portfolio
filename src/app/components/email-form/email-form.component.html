@@ -1,0 +1,38 @@
+<section id="contact">
+    <div class="mWrapper">
+        <h3>Let's connect. Reach out, and I'll get back to you soon.</h3>
+    </div>
+    <div class="formWrapper">  
+        <fieldset>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <label for="fromEmail">Email</label>
+                <input type="text" class="fromEmail" id="email" autocomplete="email" formControlName="fromEmail">
+                    @if (form.controls['fromEmail'].touched) {
+                        @if (form.controls['fromEmail'].getError('required')) {
+                            <small>Email field is required</small>
+                        }
+                        @if (form.controls['fromEmail'].getError('email')) {
+                             <small>Invalid email format</small>
+                        }
+                    }
+    
+                    <label for="message">Message</label>
+                    <textarea type="text" class="message" id="message" formControlName="message"></textarea>
+                        @if (form.controls['message'].touched) {
+                            @if (form.controls['message'].getError('required')) {
+                                <small>Please set a message</small>
+                            }
+                            @if (form.controls['message'].getError('minlength')) {
+                                <small>Min 16 characteres</small>
+                            }
+                            @if (form.controls['message'].getError('maxlength')) {
+                                <small>Max 256 characters</small>
+                            }
+                        }    
+                <button type="submit">Submit</button>           
+            </form>
+        </fieldset>
+    </div> 
+
+</section>

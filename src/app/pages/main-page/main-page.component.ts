@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AboutPageComponent } from '../about-page/about-page.component';
-import { ProjectViewPageComponent } from '../project-view-page/project-view-page.component';
+import { AboutPageComponent } from '../about-page';
+import { ProjectViewPageComponent } from '../project-view-page';
 
 @Component({
   selector: 'app-main-page',
