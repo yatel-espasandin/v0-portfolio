@@ -1,12 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MailjetService } from 'app/services/email.service';
-
+import { emailService } from 'app/services/email.service';
+import { environment } from 'src/environments/environment.development';
 
 
 interface emailForm {
-  fromEmail: FormControl<string>,
   message: FormControl<string>
 }
 
@@ -17,25 +16,26 @@ interface emailForm {
   templateUrl: './email-form.component.html',
   styleUrl: './email-form.component.scss'
 })
-export class EmailFormComponent{
+export class EmailFormComponent {
 
   fb = inject(NonNullableFormBuilder);
-  mailjetService = inject(MailjetService);
-
+  emailService = inject(emailService);
+  readonly email = environment.email;
   form = this.fb.group<emailForm>({
-    fromEmail: this.fb.control('', { validators: [Validators.required, Validators.email, Validators.maxLength(64)] }),
     message: this.fb.control('', { validators: [Validators.required, Validators.minLength(16), Validators.maxLength(256)] })
   });
 
-  onSubmit() { 
-    const fromEmail = this.form.get('fromEmail')?.value;
-    const message =  this.form.get('message')?.value;
-    this.mailjetService.sendEmail(fromEmail!, message!).then((response) => {
-      console.log('Email sent successfully:', response);
-    }).catch((error) => {
-      console.error('Error sending email:', error);
-    });
+  sendEmail() {
+
+    const message = this.form.value.message!;
+
+    const mailtoLink = `mailto: ${this.email}?body=${encodeURIComponent(message)}}`;
+
+    window.location.href = mailtoLink;
+  }  
+
+  onSubmit() {
+    this.sendEmail();
   }
+
 }
-
-

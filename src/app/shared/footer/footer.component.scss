@@ -1,0 +1,26 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    padding: 1.5rem;
+
+}
+
+footer .wrapper1 {
+    display: flex;
+    align-items: center;
+}
+footer h4,
+footer p {
+    margin: 0 1rem;
+}
+
+footer a {
+    color: rgb(179, 179, 179);
+    text-decoration: none;
+}
+
+footer a:hover{
+    color:  #b47dcd;
+}

@@ -17,7 +17,9 @@ export class ProjectViewComponent {
     {
       img: "./assets/images/tech-news.jpg",
       title: "Tech News",
-      description: "A dynamic web application focused on a seamless user experience for browsing and reading news. It features articles organized by popularity and category, with functionality to save content for later reading."
+      description: "A dynamic web application focused on a seamless user experience for browsing and reading news. It features articles organized by popularity and category, with functionality to save content for later reading.",
+      codeLink: "https://github.com/maxkmesana/Angular-News-App",
+      visualLink: "https://www.canva.com/design/DAGWJ4GsUXg/xqQKfXGwY77mfmHDYZM-TA/view#1",
     }
   ]
   

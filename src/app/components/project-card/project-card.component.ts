@@ -1,4 +1,4 @@
-import { NgOptimizedImage } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Projects } from 'app/model/projects';
 
@@ -10,7 +10,11 @@ import { Projects } from 'app/model/projects';
   styleUrl: './project-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProjectCardComponent{
+export class ProjectCardComponent {
+
+  redirectToLink(link: string | undefined): void {
+    window.location.href = link!;
+  }
 
   readonly project = input.required<Projects>();
 
