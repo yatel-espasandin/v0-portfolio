@@ -15,7 +15,7 @@ export class ProjectViewComponent {
 
   projectArray: Array<Projects> = [
     {
-      img: "assets/images/tech-news.jpg",
+      img: "/v0-portfolio/assets/images/tech-news.jpg",
       title: "Tech News",
       description: "A dynamic web application focused on a seamless user experience for browsing and reading news. It features articles organized by popularity and category, with functionality to save content for later reading."
     }
