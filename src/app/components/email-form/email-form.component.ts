@@ -20,7 +20,7 @@ interface emailForm {
 export class EmailFormComponent{
 
   fb = inject(NonNullableFormBuilder);
-  sendService = inject(MailjetService);
+  mailjetService = inject(MailjetService);
 
   form = this.fb.group<emailForm>({
     fromEmail: this.fb.control('', { validators: [Validators.required, Validators.email, Validators.maxLength(64)] }),
@@ -30,7 +30,11 @@ export class EmailFormComponent{
   onSubmit() { 
     const fromEmail = this.form.get('fromEmail')?.value;
     const message =  this.form.get('message')?.value;
-    this.sendService.sendEmail(fromEmail!, message!);
+    this.mailjetService.sendEmail(fromEmail!, message!).then((response) => {
+      console.log('Email sent successfully:', response);
+    }).catch((error) => {
+      console.error('Error sending email:', error);
+    });
   }
 }
 

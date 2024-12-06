@@ -1,8 +1,0 @@
-{
-  "/api": {
-    "target": "https://api.mailjet.com/v3.1/send",
-    "secure": true,
-    "changeOrigin": true
-  }
-}
-  

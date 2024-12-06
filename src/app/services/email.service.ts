@@ -1,41 +1,50 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import axios from 'axios';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MailjetService {
+  private readonly mailjetUrl = 'https://api.mailjet.com/v3.1/send';
+  private readonly apiKeyPublic = environment.apiKey;
+  private readonly apiKeyPrivate = environment.apiSecret;
+  private readonly email = environment.email
+  constructor() {}
 
-  private apiUrl = '/api';
-  private apiKey = environment.apiKey;
-  private apiSecret = environment.apiSecret;
-  private myEmail = environment.email; 
-  private http = inject(HttpClient)
-
-  sendEmail(fromEmail: string, text: string): Observable<any> {
-    const body = {
+  async sendEmail(senderEmail: string, message: string): Promise<any> {
+    const data = {
       Messages: [
         {
           From: {
-            Email: fromEmail,
+            Email: senderEmail, 
           },
           To: [
             {
-              Email: this.myEmail
-            }
+              Email: this.email,
+            },
           ],
-          Subject: 'portfolio message',
-          TextPart: text
-        }
-      ]
+          Subject: 'Portfolio message', 
+          TextPart: message, 
+        },
+      ],
     };
 
-    const headers = {
-      Authorization: 'Basic ' + btoa(`${this.apiKey}:${this.apiSecret}`)
-    };
+    try {
+      const response = await axios.post(this.mailjetUrl, data, {
+        auth: {
+          username: this.apiKeyPublic,
+          password: this.apiKeyPrivate,
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-    return this.http.post(this.apiUrl, body, { headers });
+      return response.data;
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw error;
+    }
   }
 }
