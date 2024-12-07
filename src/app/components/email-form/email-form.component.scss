@@ -16,7 +16,6 @@
 form {
     display: flex;
     flex-direction: column;
-
 }
 
 fieldset {
@@ -41,6 +40,7 @@ label {
 .message {
     height: 100px;
     width: 95%;
+    margin: 0;
     padding: 0.5rem;
     border: 1px solid #cccccc;
     border-radius: 4px;
@@ -50,20 +50,17 @@ label {
     resize: none;
 }
 
-.message {
-    margin-bottom: 1.5rem
-}
-
 small {
     position: absolute;
     display: block;
     color: #ff4444;
     font-size: 12px;
-    margin-top: -1.2rem;
+
 }
 
 button {
     cursor: pointer;
+    margin-top: 1.5rem;
     position: relative;
     border: 2px solid #333;
     border-radius: 10px;
@@ -76,4 +73,11 @@ button {
 
 button:hover {
     transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .for-large-screens {
+        display: none;
+    }
+    
 }
